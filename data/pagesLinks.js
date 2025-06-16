@@ -1,14 +1,11 @@
 import {
     Settings,
     User,
-    MessageSquareText,
-    Library,
-    BellRing,
     Users,
     UserPen,
     SquareLibrary,
-    MessageSquarePlus
-
+    MessageSquarePlus,
+    Contact
 } from "lucide-react"
 
 export const data = {
@@ -16,48 +13,6 @@ export const data = {
         name: "Jhon Doe",
         email: "jhondoe@email.com",
         avatar: "/avatars/shadcn.jpg",
-    },
-    student: {
-        navMain: [
-            {
-                title: "Class",
-                url: "#",
-                icon: Library,
-                isActive: true,
-                items: [
-                    {
-                        title: "Join Class",
-                        url: "#",
-                    },
-                    {
-                        title: "Enroll Class",
-                        url: "#",
-                    },
-                ],
-            },
-        ],
-        projects: [
-            {
-                name: "Profile",
-                url: "#",
-                icon: User,
-            },
-            {
-                name: "Settings",
-                url: "#",
-                icon: Settings,
-            },
-            {
-                name: "Notifications",
-                url: "#",
-                icon: BellRing,
-            },
-            {
-                name: "Message Tutor",
-                url: "#",
-                icon: MessageSquareText,
-            },
-        ],
     },
     admin: {
         navMain: [
@@ -69,11 +24,11 @@ export const data = {
                 items: [
                     {
                         title: "Add Students",
-                        url: "#",
+                        url: "/dashboard/students/add-students",
                     },
                     {
                         title: "List Students",
-                        url: "#",
+                        url: "/dashboard/students/list-students",
                     },
                 ],
             },
@@ -85,11 +40,11 @@ export const data = {
                 items: [
                     {
                         title: "Add Teachers",
-                        url: "#",
+                        url: "/dashboard/teachers/add-teachers",
                     },
                     {
                         title: "List Teachers",
-                        url: "#",
+                        url: "/dashboard/teachers/list-teachers",
                     },
                 ],
             },
@@ -101,23 +56,11 @@ export const data = {
                 items: [
                     {
                         title: "Add Courses",
-                        url: "#",
+                        url: "/dashboard/courses/add-courses",
                     },
                     {
                         title: "List Courses",
-                        url: "#",
-                    },
-                ],
-            },
-            {
-                title: "Message",
-                url: "#",
-                icon: MessageSquarePlus,
-                isActive: false,
-                items: [
-                    {
-                        title: "Write Message",
-                        url: "#",
+                        url: "/dashboard/courses/list-courses",
                     },
                 ],
             },
@@ -125,55 +68,18 @@ export const data = {
         projects: [
             {
                 name: "Profile",
-                url: "#",
+                url: "/dashboard/profile",
                 icon: User,
             },
             {
                 name: "Settings",
-                url: "#",
-                icon: Settings,
-            },
-        ],
-    },
-    teacher: {
-        navMain: [
-            {
-                title: "Class",
-                url: "#",
-                icon: Library,
-                isActive: true,
-                items: [
-                    {
-                        title: "Join Class",
-                        url: "#",
-                    },
-                    {
-                        title: "Enroll Class",
-                        url: "#",
-                    },
-                ],
-            },
-        ],
-        projects: [
-            {
-                name: "Profile",
-                url: "#",
-                icon: User,
-            },
-            {
-                name: "Settings",
-                url: "#",
+                url: "/dashboard/settings",
                 icon: Settings,
             },
             {
-                name: "Notifications",
-                url: "#",
-                icon: BellRing,
-            },
-            {
-                name: "Message Tutor",
-                url: "#",
-                icon: MessageSquareText,
+                name: "Contact Info",
+                url: "/dashboard/contact-info",
+                icon: Contact,
             },
         ],
     }

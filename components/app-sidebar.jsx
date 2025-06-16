@@ -26,9 +26,9 @@ export function AppSidebar({
 {/* Data Will Be Shown According To the Roles */}
       <SidebarContent>
         {/* Dropdown Content */}
-        <NavMain items={data.teacher.navMain} />
+        <NavMain items={data.admin.navMain} />
         {/* Pages Content */}
-        <NavProjects projects={data.teacher.projects} />
+        <NavProjects projects={data.admin.projects} />
       </SidebarContent>
 
       <SidebarFooter>
