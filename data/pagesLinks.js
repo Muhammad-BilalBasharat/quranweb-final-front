@@ -65,7 +65,7 @@ export const data = {
                 ],
             },
         ],
-        projects: [
+        generals: [
             {
                 name: "Profile",
                 url: "/dashboard/profile",

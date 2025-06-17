@@ -28,7 +28,7 @@ export function AppSidebar({
         {/* Dropdown Content */}
         <NavMain items={data.admin.navMain} />
         {/* Pages Content */}
-        <NavProjects projects={data.admin.projects} />
+        <NavProjects generals={data.admin.generals} />
       </SidebarContent>
 
       <SidebarFooter>

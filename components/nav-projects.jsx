@@ -1,27 +1,23 @@
 "use client"
 
-import { MoreHorizontal } from "lucide-react";
-
 import {
   SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar"
 import Link from "next/link";
 
 export function NavProjects({
-  projects
+  generals
 }) {
-  const { isMobile } = useSidebar()
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
       <SidebarGroupLabel>General Pages</SidebarGroupLabel>
       <SidebarMenu>
-        {projects.map((item) => (
+        {generals.map((item) => (
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild>
               {/* Pages Details */}
