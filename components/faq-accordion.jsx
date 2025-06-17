@@ -30,7 +30,7 @@ export function FaqAccordion() {
         >
             {
                 faqData.map((faq,i) => (
-                    <AccordionItem value={`faq-${i}`}>
+                    <AccordionItem value={`faq-${i+1}`} key={i}>
                         <AccordionTrigger>Product Information</AccordionTrigger>
                         <AccordionContent className="flex flex-col gap-4 text-balance">
                             <p>

@@ -1,5 +1,4 @@
 "use client"
-
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -10,7 +9,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '#home', text: 'Home' },
     { href: '#about', text: 'About' },
-    { href: '#contact', text: 'Contact Us' },
+    { href: '/contact-us', text: 'Contact Us' },
     { href: '/fee', text: 'Pay Fee' },
     { href: '/faq', text: 'FAQ' },
   ]
@@ -34,18 +33,18 @@ export default function Navbar() {
             <li key={index} className="relative">
               <Link 
                 href={link.href} 
-                className="text-white hover:text-extra-muted transition duration-300 relative"
+                className={`text-white hover:text-extra-muted transition duration-300 relative`}
               >
                 {link.text}
                 {isActive && (
-                  <div className="w-5 h-1 rounded-full bg-white absolute -bottom-2 right-1/2 left-1/2 -translate-x-1/2"></div>
+                  <div className="w-5 h-1 rounded-full bg-extra-muted absolute -bottom-2 right-1/2 left-1/2 -translate-x-1/2"></div>
                 )}
               </Link>
             </li>
           )
         })}
       </ul>
-      <Link href={"#"} className="bg-primary hover:bg-extra-dark transition duration-300 text-white p-2 rounded-sm">Makkah Live</Link>
+      <Link href={"#"} className="bg-secondary hover:bg-primary transition duration-300 text-white p-2 rounded-sm">Makkah Live</Link>
     </nav>
   )
 }
