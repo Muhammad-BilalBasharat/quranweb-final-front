@@ -1,7 +1,13 @@
+import AddEntityForm from "@/components/add-entity";
+
 export default function AddStudentPage() {
     return (
         <>
-            <h1>Welcome to the Add Teacher</h1>
+            <AddEntityForm
+                formTitle="Add Student"
+                entityType="student"
+                onSuccess={(data) => console.log("Student added:", data)}
+            />
         </>
     );
 }

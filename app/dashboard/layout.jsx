@@ -13,11 +13,13 @@ import {
     SidebarProvider,
     SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({ children }) {
 
     return (
         <SidebarProvider>
+            <Toaster />
             <AppSidebar />
             <SidebarInset>
                 <header
