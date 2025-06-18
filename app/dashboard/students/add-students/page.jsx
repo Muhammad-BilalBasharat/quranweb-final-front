@@ -1,3 +1,4 @@
+"use client";
 import AddEntityForm from "@/components/add-entity";
 
 export default function AddStudentPage() {
