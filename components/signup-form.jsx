@@ -13,6 +13,8 @@ import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { useState } from "react"
 import Link from "next/link";
+import Cookies from "js-cookie"
+import { useAuthStore } from "@/api/authStore"
 
 export function SignupForm({
   className,
@@ -22,6 +24,20 @@ export function SignupForm({
 
   const handleShowPassword = (checked) => {
     setShowPassword(checked);
+  };
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    // collect form data here
+    // const data = {...};
+    // const response = await axiosRequest({ ... });
+    // if (response.success) {
+    //   const { user, token } = response.data.data;
+    //   useAuthStore.getState().setUser(user);
+    //   useAuthStore.getState().setToken(token);
+    //   Cookies.set("auth_token", token, { secure: true, sameSite: "strict" });
+    //   router.push("/dashboard");
+    // }
   };
 
   return (
@@ -34,7 +50,7 @@ export function SignupForm({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={handleSignup}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-3">
                 <Label htmlFor="firstName">First Name</Label>

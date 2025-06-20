@@ -11,7 +11,7 @@ const footerLinks = {
   ],
   support: [
     { href: "/privacy-policy", text: "Privacy & Policy" },
-    { href: "/term-condition", text: "Terms & Conditions" },
+    { href: "/terms-condition", text: "Terms & Conditions" },
     { href: "/contact-us", text: "Contact Us" },
   ],
   resources: [

@@ -148,7 +148,7 @@ import {
         {/* Main Heading */}
         <div className="text-center">
           <h1 className="text-4xl font-bold text-primary my-5">Tuition Fee</h1>
-          <h3>We will provide 3 free trials lessons.</h3>
+          <p>We will provide 3 free trials lessons.</p>
         </div>
   
 

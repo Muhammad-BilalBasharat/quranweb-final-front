@@ -5,6 +5,8 @@ import {
   LogOut,
   User
 } from "lucide-react"
+import Cookies from "js-cookie"
+import { useRouter } from "next/navigation"
 
 import {
   Avatar,
@@ -26,11 +28,19 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
+import { useAuthStore } from "@/api/authStore"
 
 export function NavUser({
   user
 }) {
   const { isMobile } = useSidebar()
+  const router = useRouter();
+  const { logout } = useAuthStore.getState();
+
+  const handleLogout = () => {
+    logout();
+    router.push("/login");
+  };
 
   return (
     <SidebarMenu>
@@ -76,7 +86,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>
               <LogOut />
               Log out
             </DropdownMenuItem>
@@ -86,3 +96,4 @@ export function NavUser({
     </SidebarMenu>
   );
 }
+

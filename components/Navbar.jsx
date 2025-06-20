@@ -44,7 +44,7 @@ export default function Navbar() {
           )
         })}
       </ul>
-      <Link href={"#"} className="bg-secondary hover:bg-primary transition duration-300 text-white p-2 rounded-sm">Makkah Live</Link>
+      <Link href={"/makkah-live"} className="bg-secondary hover:bg-primary transition duration-300 text-white p-2 rounded-sm">Makkah Live</Link>
     </nav>
   )
 }
