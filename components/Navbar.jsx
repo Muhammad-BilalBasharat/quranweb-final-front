@@ -7,10 +7,10 @@ export default function Navbar() {
   const pathname = usePathname()
   
   const navLinks = [
-    { href: '#home', text: 'Home' },
-    { href: '#about', text: 'About' },
+    { href: '/', text: 'Home' },
+    { href: '/about', text: 'About' },
     { href: '/contact-us', text: 'Contact Us' },
-    { href: '/fee', text: 'Pay Fee' },
+    { href: '/tuition-fee', text: 'Tuition Fee' },
     { href: '/faq', text: 'FAQ' },
   ]
   return (

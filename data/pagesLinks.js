@@ -4,7 +4,6 @@ import {
     Users,
     UserPen,
     SquareLibrary,
-    MessageSquarePlus,
     Contact
 } from "lucide-react"
 
