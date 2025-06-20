@@ -1,14 +1,14 @@
-"use client";
 import AddEntityForm from "@/components/add-entity";
 
+export function generateMetadata() {
+  return {
+    title: "Add Student | QuranWeb",
+    description: "Add a new student to QuranWeb.",
+  };
+}
+
+import AddStudentClient from "./AddStudentClient";
+
 export default function AddStudentPage() {
-    return (
-        <>
-            <AddEntityForm
-                formTitle="Add Student"
-                entityType="student"
-                onSuccess={(data) => console.log("Student added:", data)}
-            />
-        </>
-    );
+    return <AddStudentClient />;
 }

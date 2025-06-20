@@ -1,3 +1,10 @@
+export function generateMetadata() {
+  return {
+    title: "Login | QuranWeb",
+    description: "Login to your QuranWeb account",
+  };
+}
+
 import { LoginForm } from "@/components/login-form"
 
 export default function Page() {

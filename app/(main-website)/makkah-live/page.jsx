@@ -1,4 +1,11 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+export function generateMetadata() {
+  return {
+    title: "Makkah Live | QuranWeb",
+    description: "Watch Makkah live 24/7 on QuranWeb.",
+  };
+}
+
 export default function MakkahLivePage() {
     return (
         <div className="w-5/6 mx-auto my-10">

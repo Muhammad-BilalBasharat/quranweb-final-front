@@ -1,3 +1,10 @@
+export function generateMetadata() {
+  return {
+    title: "Frequently Asked Questions | QuranWeb",
+    description: "Find answers to common questions about QuranWeb.",
+  };
+}
+
 import { FaqAccordion } from "@/components/faq-accordion";
 
 export default function FAQ() {

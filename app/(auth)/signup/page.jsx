@@ -1,3 +1,10 @@
+export function generateMetadata() {
+  return {
+    title: "Sign Up | QuranWeb",
+    description: "Create a new QuranWeb account",
+  };
+}
+
 import { SignupForm } from "@/components/signup-form"
 
 export default function Page() {

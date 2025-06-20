@@ -1,3 +1,4 @@
+"use client"
 import { useForm } from "react-hook-form";
 import {toast} from "react-hot-toast";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";

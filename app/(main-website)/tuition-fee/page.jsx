@@ -4,3 +4,10 @@ return (
 <Fee />
 )
 }
+
+export function generateMetadata() {
+  return {
+    title: "Tuition Fee | QuranWeb",
+    description: "View QuranWeb tuition fee details.",
+  };
+}
