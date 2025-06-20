@@ -1,4 +1,3 @@
-import AddEntityForm from "@/components/add-entity";
 
 export function generateMetadata() {
   return {

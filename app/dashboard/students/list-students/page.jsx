@@ -10,7 +10,7 @@ export function generateMetadata() {
 export default function ListStudentPage() {
     return (
         <div>
-            <ListDataTable />
+            <ListDataTable entityType="student" />
         </div>
     )
 }

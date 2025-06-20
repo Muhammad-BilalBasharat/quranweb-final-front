@@ -16,180 +16,181 @@ import {
     getSortedRowModel,
     useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, ChevronDown } from "lucide-react"
+import { ArrowUpDown, ChevronDown, Loader2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { axiosRequest } from "@/lib/axiosReq"
+import { toast } from "react-hot-toast"
 
-const data = [
-    {
-        id: "1",
-        name: "John Doe",
-        email: "john.doe@example.com",
-        phone: "+1 (555) 123-4567",
-    },
-    {
-        id: "2",
-        name: "Jane Smith",
-        email: "jane.smith@example.com",
-        phone: "+1 (555) 234-5678",
-    },
-    {
-        id: "3",
-        name: "Mike Johnson",
-        email: "mike.johnson@example.com",
-        phone: "+1 (555) 345-6789",
-    },
-    {
-        id: "4",
-        name: "Sarah Wilson",
-        email: "sarah.wilson@example.com",
-        phone: "+1 (555) 456-7890",
-    },
-    {
-        id: "5",
-        name: "David Brown",
-        email: "david.brown@example.com",
-        phone: "+1 (555) 567-8901",
-    },
-    {
-        id: "6",
-        name: "Emily Davis",
-        email: "emily.davis@example.com",
-        phone: "+1 (555) 678-9012",
-    },
-    {
-        id: "7",
-        name: "Chris Miller",
-        email: "chris.miller@example.com",
-        phone: "+1 (555) 789-0123",
-    },
-    {
-        id: "8",
-        name: "Amanda Garcia",
-        email: "amanda.garcia@example.com",
-        phone: "+1 (555) 890-1234",
-    },
-    {
-        id: "9",
-        name: "Robert Martinez",
-        email: "robert.martinez@example.com",
-        phone: "+1 (555) 901-2345",
-    },
-    {
-        id: "10",
-        name: "Lisa Anderson",
-        email: "lisa.anderson@example.com",
-        phone: "+1 (555) 012-3456",
-    },
-    {
-        id: "11",
-        name: "Kevin Taylor",
-        email: "kevin.taylor@example.com",
-        phone: "+1 (555) 123-4567",
-    },
-    {
-        id: "12",
-        name: "Michelle Thomas",
-        email: "michelle.thomas@example.com",
-        phone: "+1 (555) 234-5678",
-    },
-    {
-        id: "13",
-        name: "Daniel Jackson",
-        email: "daniel.jackson@example.com",
-        phone: "+1 (555) 345-6789",
-    },
-    {
-        id: "14",
-        name: "Rachel White",
-        email: "rachel.white@example.com",
-        phone: "+1 (555) 456-7890",
-    },
-    {
-        id: "15",
-        name: "Mark Harris",
-        email: "mark.harris@example.com",
-        phone: "+1 (555) 567-8901",
-    },
-]
+import {
+    AlertDialog,
+    AlertDialogTrigger,
+    AlertDialogContent,
+    AlertDialogHeader,
+    AlertDialogFooter,
+    AlertDialogTitle,
+    AlertDialogDescription,
+    AlertDialogAction,
+    AlertDialogCancel,
+} from "@/components/ui/alert-dialog"
 
-export const columns = [
-    {
-        id: "select",
-        header: ({ table }) => (
-            <Checkbox
-                checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")}
-                onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-                aria-label="Select all"
-            />
-        ),
-        cell: ({ row }) => (
-            <Checkbox
-                checked={row.getIsSelected()}
-                onCheckedChange={(value) => row.toggleSelected(!!value)}
-                aria-label="Select row"
-            />
-        ),
-        enableSorting: false,
-        enableHiding: false,
-    },
-    {
-        accessorKey: "name",
-        header: ({ column }) => {
-            return (
+export function ListDataTable({ entityType }) {
+    const [data, setData] = React.useState([])
+    const [loading, setLoading] = React.useState(false)
+    const [refresh, setRefresh] = React.useState(0)
+    const [deletingId, setDeletingId] = React.useState(null)
+    const [deleting, setDeleting] = React.useState(false)
+
+    // Fetch data from API
+    React.useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true)
+            try {
+                const res = await axiosRequest({
+                    method: "GET",
+                    url: `${process.env.NEXT_PUBLIC_API_URL}/${entityType}/${entityType}s`,
+                    headers: {
+                        "Cache-Control": "no-cache",
+                        "Pragma": "no-cache",
+                    },
+                })
+                if (res.success && Array.isArray(res.data)) {
+                    setData(res.data)
+                } else if (res.success && res.data && Array.isArray(res.data.data)) {
+                    setData(res.data.data)
+                } else {
+                    setData([])
+                    toast.error("Failed to fetch data or data is not an array")
+                }
+            } catch (err) {
+                setData([])
+                toast.error("Failed to fetch data")
+            }
+            setLoading(false)
+        }
+        fetchData()
+    }, [entityType, refresh])
+
+    // Delete handler
+    const handleDelete = async () => {
+        if (!deletingId) return
+        setDeleting(true)
+        try {
+            const row = data.find(d => d._id === deletingId)
+            const res = await axiosRequest({
+                method: "DELETE",
+                url: `${process.env.NEXT_PUBLIC_API_URL}/${entityType}/delete-${entityType}/${deletingId}`,
+            })
+            if (res.success) {
+                toast.success(`${row?.name || "Entity"} deleted`)
+                setRefresh(r => r + 1)
+            } else {
+                toast.error(res.error || "Delete failed")
+            }
+        } catch (err) {
+            toast.error("Delete failed")
+        }
+        setDeleting(false)
+        setDeletingId(null)
+    }
+
+    // Table columns
+    const columns = [
+        {
+            id: "select",
+            header: ({ table }) => (
+                <Checkbox
+                    checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")}
+                    onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+                    aria-label="Select all"
+                />
+            ),
+            cell: ({ row }) => (
+                <Checkbox
+                    checked={row.getIsSelected()}
+                    onCheckedChange={(value) => row.toggleSelected(!!value)}
+                    aria-label="Select row"
+                />
+            ),
+            enableSorting: false,
+            enableHiding: false,
+        },
+        {
+            accessorKey: "name",
+            header: ({ column }) => (
                 <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
                     Name
                     <ArrowUpDown />
                 </Button>
-            )
+            ),
+            cell: ({ row }) => <div className="font-medium">{row.getValue("name")}</div>,
         },
-        cell: ({ row }) => <div className="font-medium">{row.getValue("name")}</div>,
-    },
-    {
-        accessorKey: "email",
-        header: ({ column }) => {
-            return (
+        {
+            accessorKey: "email",
+            header: ({ column }) => (
                 <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
                     Email
                     <ArrowUpDown />
                 </Button>
-            )
+            ),
+            cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
         },
-        cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
-    },
-    {
-        accessorKey: "phone",
-        header: "Phone Number",
-        cell: ({ row }) => <div className="font-mono">{row.getValue("phone")}</div>,
-    },
-    {
-        id: "actions",
-        enableHiding: false,
-        cell: ({ row }) => {
-            const contact = row.original
-
-            return (
-                <Button
-                    variant="destructive"
-                    size="sm"
-                    onClick={() => {
-                        if (window.confirm(`Are you sure you want to delete ${contact.name}?`)) {
-                            console.log("Deleting contact:", contact.name)
-                            
-                        }
-                    }}
-                >
-                    Delete
-                </Button>
-            )
+        {
+            accessorKey: "phone",
+            header: "Phone Number",
+            cell: ({ row }) => <div className="font-mono">{row.getValue("phone")}</div>,
         },
-    },
-]
+        {
+            id: "actions",
+            enableHiding: false,
+            cell: ({ row }) => {
+                const contact = row.original
+                return (
+                    <AlertDialog open={deletingId === contact._id} onOpenChange={open => { if (!open) setDeletingId(null) }}>
+                        <AlertDialogTrigger asChild>
+                            <Button
+                                variant="destructive"
+                                size="sm"
+                                onClick={() => setDeletingId(contact._id)}
+                                disabled={loading || deleting}
+                            >
+                                Delete
+                            </Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                            <AlertDialogHeader>
+                                <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                                <AlertDialogDescription>
+                                    This action cannot be undone. This will permanently delete <b>{contact.name}</b>.
+                                </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel
+                                    onClick={() => setDeletingId(null)}
+                                    disabled={deleting}
+                                >
+                                    Cancel
+                                </AlertDialogCancel>
+                                <AlertDialogAction
+                                    onClick={handleDelete}
+                                    disabled={deleting}
+                                >
+                                    {deleting ? (
+                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                    ) : null}
+                                    Delete
+                                </AlertDialogAction>
+                            </AlertDialogFooter>
+                        </AlertDialogContent>
+                    </AlertDialog>
+                )
+            },
+        },
+    ]
 
-export function ListDataTable() {
     const [sorting, setSorting] = React.useState([])
     const [columnFilters, setColumnFilters] = React.useState([])
     const [columnVisibility, setColumnVisibility] = React.useState({})
@@ -269,9 +270,15 @@ export function ListDataTable() {
                         ))}
                     </TableHeader>
                     <TableBody>
-                        {table.getRowModel().rows?.length ? (
+                        {loading && !deletingId ? (
+                            <TableRow>
+                                <TableCell colSpan={columns.length} className="h-24 text-center">
+                                    <Loader2 className="mx-auto h-8 w-8 animate-spin text-primary" />
+                                </TableCell>
+                            </TableRow>
+                        ) : table.getRowModel().rows?.length ? (
                             table.getRowModel().rows.map((row) => (
-                                <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+                                <TableRow key={row.original._id} data-state={row.getIsSelected() && "selected"}>
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
                                     ))}
@@ -289,19 +296,23 @@ export function ListDataTable() {
             </div>
             <div className="flex items-center justify-end space-x-2 py-4">
                 <div className="text-muted-foreground flex-1 text-sm">
-                    {table.getFilteredSelectedRowModel().rows.length} of {table.getFilteredRowModel().rows.length} contact(s)
-                    selected.
+                    {table.getFilteredSelectedRowModel().rows.length} of {table.getFilteredRowModel().rows.length} contact(s) selected.
                 </div>
                 <div className="space-x-2">
                     <Button
                         variant="outline"
                         size="sm"
                         onClick={() => table.previousPage()}
-                        disabled={!table.getCanPreviousPage()}
+                        disabled={!table.getCanPreviousPage() || loading || deleting}
                     >
                         Previous
                     </Button>
-                    <Button variant="outline" size="sm" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => table.nextPage()}
+                        disabled={!table.getCanNextPage() || loading || deleting}
+                    >
                         Next
                     </Button>
                 </div>

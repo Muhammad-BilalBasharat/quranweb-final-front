@@ -6,7 +6,6 @@ export default function AddStudentClient() {
     <AddEntityForm
       formTitle="Add Student"
       entityType="student"
-      onSuccess={(data) => console.log("Student added:", data)}
     />
   );
 } 
