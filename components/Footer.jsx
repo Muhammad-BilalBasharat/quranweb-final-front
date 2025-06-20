@@ -23,7 +23,7 @@ const footerLinks = {
 export default function Footer() {
   const { about, support, resources } = footerLinks;
   return (
-    <footer className="text-sm text-white bg-extra-dark">
+    <footer className="text-sm text-white bg-extra-dark mb-0 mt-auto">
       <div className="px-5 pt-10 pb-5">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 gap-8 mb-8 md:grid-cols-2 lg:grid-cols-5">
