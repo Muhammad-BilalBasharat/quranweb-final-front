@@ -5,9 +5,8 @@ import {
   LogOut,
   User
 } from "lucide-react"
-import Cookies from "js-cookie"
 import { useRouter } from "next/navigation"
-
+import { useEffect, useState } from "react"
 import {
   Avatar,
   AvatarFallback,
@@ -29,18 +28,45 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { useAuthStore } from "@/api/authStore"
+import Link from "next/link"
+import { axiosRequest } from "@/lib/axiosReq"
+import { Loader } from "lucide-react"
 
-export function NavUser({
-  user
-}) {
+export function NavUser() {
   const { isMobile } = useSidebar()
   const router = useRouter();
   const { logout } = useAuthStore.getState();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchUser() {
+      const res = await axiosRequest({
+        method: "GET",
+        url: process.env.NEXT_PUBLIC_API_URL + "/auth/me",
+      });
+      if (res.success) {
+        setUser(res.data.data);
+      }
+      setLoading(false);
+    }
+    fetchUser();
+  }, []);
 
   const handleLogout = () => {
     logout();
     router.push("/login");
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[60px]">
+        <Loader className="animate-spin text-primary w-6 h-6" />
+      </div>
+    );
+  }
+
+  if (!user) return null;
 
   return (
     <SidebarMenu>
@@ -52,7 +78,7 @@ export function NavUser({
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
               <Avatar className="w-8 h-8 rounded-lg">
                 <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                <AvatarFallback className="rounded-lg">{user.name ? user.name[0] : "U"}</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-sm leading-tight text-left">
                 <span className="font-medium truncate">{user.name}</span>
@@ -70,7 +96,7 @@ export function NavUser({
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="w-8 h-8 rounded-lg">
                   <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                  <AvatarFallback className="rounded-lg">{user.name ? user.name[0] : "U"}</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-sm leading-tight text-left">
                   <span className="font-medium truncate">{user.name}</span>
@@ -80,9 +106,11 @@ export function NavUser({
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <User />
-                Profile
+              <DropdownMenuItem asChild>
+                <Link href={`/dashboard/profile`}>
+                  <User />
+                  Profile
+                </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />

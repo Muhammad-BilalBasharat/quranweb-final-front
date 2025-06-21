@@ -1,3 +1,4 @@
+"use client";
 import { AppSidebar } from "@/components/app-sidebar"
 import {
     Breadcrumb,
@@ -13,8 +14,18 @@ import {
     SidebarProvider,
     SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { usePathname } from "next/navigation"
 
 export default function RootLayout({ children }) {
+
+    const pathname = usePathname();
+    const segments = pathname.replace(/^\/|\/$/g, "").split("/");
+
+    const labelMap = {
+        dashboard: "Dashboard",
+        profile: "Profile",
+        settings: "Settings",
+    };
 
     return (
         <SidebarProvider>
@@ -27,15 +38,24 @@ export default function RootLayout({ children }) {
                         <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />
                         <Breadcrumb>
                             <BreadcrumbList>
-                                <BreadcrumbItem className="hidden md:block">
-                                    <BreadcrumbLink href="#">
-                                        Building Your Application
-                                    </BreadcrumbLink>
-                                </BreadcrumbItem>
-                                <BreadcrumbSeparator className="hidden md:block" />
-                                <BreadcrumbItem>
-                                    <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                                </BreadcrumbItem>
+                                {segments.map((seg, idx) => (
+                                    <span key={seg} className="flex items-center">
+                                        <BreadcrumbItem>
+                                            {idx < segments.length - 1 ? (
+                                                <BreadcrumbLink href={"/" + segments.slice(0, idx + 1).join("/")}>
+                                                    {labelMap[seg] || seg.charAt(0).toUpperCase() + seg.slice(1)}
+                                                </BreadcrumbLink>
+                                            ) : (
+                                                <BreadcrumbPage>
+                                                    {labelMap[seg] || seg.charAt(0).toUpperCase() + seg.slice(1)}
+                                                </BreadcrumbPage>
+                                            )}
+                                        </BreadcrumbItem>
+                                        {idx < segments.length - 1 && (
+                                            <BreadcrumbSeparator />
+                                        )}
+                                    </span>
+                                ))}
                             </BreadcrumbList>
                         </Breadcrumb>
                     </div>

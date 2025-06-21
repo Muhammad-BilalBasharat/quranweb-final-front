@@ -48,6 +48,7 @@
   --color-muted: #90e0ef;
   --color-extra-muted: #caf0f8;
   --text-xs: 0.75rem;
+  --breakpoint-xs: 344px;
 }
 
 :root {

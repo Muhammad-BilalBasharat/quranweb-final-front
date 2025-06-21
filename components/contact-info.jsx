@@ -10,26 +10,39 @@ import { axiosRequest } from "@/lib/axiosReq"
 
 export default function ContactInfo() {
     const [loading, setLoading] = useState(true)
+    const [lastSaved, setLastSaved] = useState({
+        phoneOne: "",
+        phoneTwo: "",
+        phoneThree: "",
+        whatsapp: "",
+        email: "",
+        address: "",
+        facebook: "",
+        twitter: "",
+        instagram: "",
+        youtube: ""
+    });
     const { register, handleSubmit, reset, setValue, watch, formState: { isSubmitting, errors } } = useForm()
     const [contactId, setContactId] = useState(null)
     const apiEndpoint = process.env.NEXT_PUBLIC_API_URL + `/contact/web-contact`;
 
-    // Fetch contact info on mount
-useEffect(() => {
-    const fetchContact = async () => {
-        setLoading(true)
-        const res = await axiosRequest({
-            method: "GET",
-            url: apiEndpoint,
-        })
-        if (res.success && res.data && res.data.data && res.data.data[0]) {
-            reset(res.data.data[0])
-            setContactId(res.data.data[0]._id)
+    // Fetch
+    useEffect(() => {
+        const fetchContact = async () => {
+            setLoading(true)
+            const res = await axiosRequest({
+                method: "GET",
+                url: apiEndpoint,
+            })
+            if (res.success && res.data && res.data.data && res.data.data[0]) {
+                reset(res.data.data[0])
+                setContactId(res.data.data[0]._id)
+                setLastSaved({ ...res.data.data[0] })
+            }
+            setLoading(false)
         }
-        setLoading(false)
-    }
-    fetchContact()
-}, [reset, apiEndpoint])
+        fetchContact()
+    }, [reset, apiEndpoint])
 
     const onSubmit = async (data) => {
         let res
@@ -54,6 +67,7 @@ useEffect(() => {
             if (res.data && res.data.data && res.data.data[0]) {
                 setContactId(res.data.data[0]._id)
                 reset(res.data.data[0])
+                setLastSaved({ ...res.data.data[0] })
             }
         } else if (Array.isArray(res.error?.error)) {
             res.error.error.forEach((err) => toast.error(err))
@@ -63,6 +77,9 @@ useEffect(() => {
     }
 
     const watchAllFields = watch();
+    const isUnchanged = Object.keys(lastSaved).every(
+        key => (watchAllFields[key] ?? "") === (lastSaved[key] ?? "")
+    );
 
     return (
         <Card>
@@ -120,15 +137,11 @@ useEffect(() => {
                     </div>
 
                     <div className="flex col-span-2 gap-5 items-center">
-                        <Button type="submit" color="primary" disabled={isSubmitting || loading}>
+                        <Button type="submit" color="primary" disabled={isSubmitting || loading || isUnchanged}>
                             {isSubmitting ? "Saving..." : "Update Contact Info"}
                         </Button>
                     </div>
                 </form>
-                {/* Debug: Show real-time form values */}
-                <pre className="col-span-2 mt-4 bg-gray-100 p-2 text-xs rounded">
-                    {JSON.stringify(watchAllFields, null, 2)}
-                </pre>
             </CardContent>
         </Card>
     )
