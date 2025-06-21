@@ -55,7 +55,7 @@ import {
       <div className="w-[90%] mx-auto space-y-8">
         {/* Main Heading */}
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-primary my-5">Tuition Fee</h1>
+          <h1 className="my-10 text-3xl font-semibold text-extra-dark text-center">Tuition Fee</h1>
           <p>We will provide 3 free trials lessons.</p>
         </div>
   

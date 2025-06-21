@@ -135,7 +135,7 @@ export default function Footer() {
         {/* Copyright Section */}
         <div className="border-t border-muted"></div>
         <div className="mt-5 text-xs text-center text-gray-200">
-          &copy; {new Date().getFullYear()} AK Designer Art. All rights reserved.
+          &copy; {new Date().getFullYear()} Smart Quran Learning. All rights reserved.
         </div>
       </div>
     </footer>

@@ -68,7 +68,7 @@ const About = () => {
       <div className="w-5/6 mx-auto">
         {/* Header */}
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-primary">
+          <h2 className="my-10 text-3xl font-semibold text-extra-dark text-center">
             {aboutData.header.title}
           </h2>
         </div>

@@ -1,3 +1,6 @@
+import Banner from "@/components/Banner";
+import TrailCard from "@/components/trail-card";
+
 export function generateMetadata() {
   return {
     title: "Home | QuranWeb",
@@ -8,7 +11,8 @@ export function generateMetadata() {
 export default function Home() {
   return (
     <>
-      <h1>helo</h1>
+    <Banner/>
+      <TrailCard/>
     </>
   );
 }
