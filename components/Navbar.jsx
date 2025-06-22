@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image"
 import Link from "next/link"
+import logo from "@/public/logo.png"
 import { usePathname } from "next/navigation"
 
 export default function Navbar() {
@@ -14,10 +15,10 @@ export default function Navbar() {
     { href: '/faq', text: 'FAQ' },
   ]
   return (
-    <nav className="flex items-center justify-between px-10 text-sm shadow-md bg-extra-dark">
-        <div className="relative aspect-square w-15 overflow-hidden">
+    <nav className="flex items-center justify-between px-10 text-sm shadow-md bg-extra-dark py-1.5 top-0 fixed w-full z-50">
+        <div className="relative aspect-square w-15 overflow-hidden rounded-full">
             <Image 
-            src={"https://img.freepik.com/free-vector/colorful-letter-gradient-logo-design_474888-2309.jpg?semt=ais_hybrid&w=740"}
+            src={logo}
             alt="Logo"
             fill
             className="object-cover"

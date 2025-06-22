@@ -1,4 +1,4 @@
-import Banner from "@/components/Banner";
+
 import TrailCard from "@/components/trail-card";
 
 export function generateMetadata() {
@@ -11,7 +11,6 @@ export function generateMetadata() {
 export default function Home() {
   return (
     <>
-    <Banner/>
       <TrailCard/>
     </>
   );
