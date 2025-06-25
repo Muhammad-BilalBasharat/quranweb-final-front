@@ -1,16 +1,13 @@
 "use client"
 import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
 import SurahList from "./SurahList";
 import JuzList from "./JuzList";
 import NooraniQaidaList from "./NooraniQaidaList";
-import EnglishJuzList from "./EnglishJuzList";
 
 const TABS = [
   { key: "surah", label: "Surah" },
   { key: "juz", label: "Juz/Para" },
   { key: "qaida", label: "Noorani Qaida" },
-  { key: "english-juz", label: "English Translation Juz/Para" },
 ];
 
 export default function LearnQuranTabs() {
@@ -47,7 +44,6 @@ export default function LearnQuranTabs() {
           {activeTab === "surah" && <SurahList />}
           {activeTab === "juz" && <JuzList />}
           {activeTab === "qaida" && <NooraniQaidaList />}
-          {activeTab === "english-juz" && <EnglishJuzList />}
         </div>
       </div>
     </div>

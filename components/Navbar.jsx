@@ -13,10 +13,11 @@ export default function Navbar() {
     { href: '/contact-us', text: 'Contact Us' },
     { href: '/tuition-fee', text: 'Tuition Fee' },
     { href: '/faq', text: 'FAQ' },
+    { href: '/learn-quran', text: 'Learn Quran' },
   ]
   return (
     <nav className="flex items-center justify-between px-10 text-sm shadow-md bg-extra-dark py-1.5 top-0 fixed w-full z-50">
-        <div className="relative aspect-square w-15 overflow-hidden rounded-full">
+        <div className="relative aspect-square w-15 h-15 overflow-hidden rounded-full">
             <Image 
             src={logo}
             alt="Logo"
