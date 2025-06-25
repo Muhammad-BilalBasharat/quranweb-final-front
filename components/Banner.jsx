@@ -3,7 +3,7 @@ import AlQuran from "@/public/alquran.png"
 
 export default function Banner() {
     return (
-        <div className="relative w-full h-[60vh] bg-gradient-to-r from-secondary via-primary mt-18 to-dark flex items-center justify-center overflow-hidden">
+        <div className="relative w-full lg:h-[80vh] bg-gradient-to-r from-secondary via-primary to-dark flex items-center justify-center overflow-hidden">
             <div className="absolute top-5 left-1/2 transform -translate-x-1/2 z-10">
                 <h2 className="text-white text-2xl font-light text-center tracking-wide">
                     بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
