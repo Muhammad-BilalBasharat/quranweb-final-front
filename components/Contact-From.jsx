@@ -29,31 +29,31 @@ export default function ContactForm() {
     return (
         <div>
             {/* Contact Information Section */}
-            <div className="grid grid-cols-3 gap-5 mb-10">
+            <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-10">
                 {/* Mail address */}
-                <div className="flex items-start gap-4 border border-gray-300 p-5 rounded hover:shadow-md hover:-translate-y-1.5 duration-300 transform">
+                <div className="flex items-start gap-4 border border-gray-300 p-4 xs:p-4 sm:p-5 rounded hover:shadow-md hover:-translate-y-1.5 duration-300 transform">
                     <div>
                         <Mail className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                         <h3 className="mb-1 text-lg font-semibold text-extra-dark">Mail address</h3>
-                        <p className="mb-1 text-gray-500">support@akdesignerart.com</p>
+                        <p className="mb-1 text-gray-500">muhammadbasharat@gmail.com</p>
                     </div>
                 </div>
 
                 {/* Office address */}
-                <div className="flex items-start gap-4 border border-gray-300 p-5 rounded hover:shadow-md hover:-translate-y-1.5 duration-300 transform">
+                <div className="flex items-start gap-4 border border-gray-300 p-4 xs:p-4 sm:p-5 rounded hover:shadow-md hover:-translate-y-1.5 duration-300 transform">
                     <div>
                         <MapPin className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                         <h3 className="mb-1 text-lg font-semibold text-extra-dark">Office address</h3>
-                        <p className="mb-1 text-gray-500">Main Shakargarh Road Zafarwal District</p>
+                        <p className="mb-1 text-gray-500">Main Zafarwal Road Shakargarh City</p>
                     </div>
                 </div>
 
-                {/* Phone Number */}
-                <div className="flex items-start gap-4 border border-gray-300 p-5 rounded hover:shadow-md hover:-translate-y-1.5 duration-300 transform">
+                {/* Phone Number */} 
+                <div className="flex items-start gap-4 border border-gray-300 p-4 xs:p-4 sm:p-5 rounded hover:shadow-md hover:-translate-y-1.5 duration-300 transform">
                     <div>
                         <Phone className="w-6 h-6 text-primary" />
                     </div>
@@ -66,14 +66,14 @@ export default function ContactForm() {
 
             {/* Contact Form Section */}
             <div>
-                <div className="p-10 rounded border border-extra-dark">
+                <div className="p-4 xs:p-4 sm:p-10 rounded border border-extra-dark">
                     <div className="mb-6">
                         <h2 className="mb-2 text-2xl font-semibold text-extra-dark">Drop Us A Message</h2>
                         <p className="text-sm text-gray-500">Your Email Address Will Not Be Published.</p>
                     </div>
                     <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                         {/* First Row */}
-                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                             <div className="relative">
                                 <input
                                     type="text"

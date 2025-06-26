@@ -26,29 +26,29 @@ export default function EnrollmentSteps() {
   ]
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <h2 className="text-3xl font-bold text-center text-extra-dark mb-16">Easy to Get Started</h2>
+    <div className="max-w-2xl xs:max-w-4xl md:max-w-6xl mx-auto px-2 xs:px-4 py-8 xs:py-12">
+      <h2 className="text-2xl xs:text-3xl font-bold text-center text-extra-dark mb-10 xs:mb-16">Easy to Get Started</h2>
 
-      <div className="space-y-16">
+      <div className="space-y-10 xs:space-y-16">
         {steps.map((step) => {
           const IconComponent = step.icon
           return (
-            <div key={step.number} className="flex flex-col md:flex-row items-center gap-8">
+            <div key={step.number} className="flex flex-col md:flex-row items-center gap-6 xs:gap-8">
               {/* Icon Circle */}
               <div className="flex-shrink-0">
-                <div className="w-48 h-48 rounded-full bg-gradient-to-br from-cyan-400 to-emerald-400 flex items-center justify-center shadow-lg">
-                  <div className="w-32 h-32 bg-white rounded-2xl flex items-center justify-center">
-                    <IconComponent className="w-16 h-16 text-cyan-500" strokeWidth={1.5} />
+                <div className="w-32 h-32 xs:w-48 xs:h-48 rounded-full bg-gradient-to-br from-cyan-400 to-emerald-400 flex items-center justify-center shadow-lg">
+                  <div className="w-20 h-20 xs:w-32 xs:h-32 bg-white rounded-2xl flex items-center justify-center">
+                    <IconComponent className="w-10 h-10 xs:w-16 xs:h-16 text-cyan-500" strokeWidth={1.5} />
                   </div>
                 </div>
               </div>
 
               {/* Content */}
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-2xl font-bold text-extra-dark mb-4">
+                <h3 className="text-xl xs:text-2xl font-bold text-extra-dark mb-2 xs:mb-4">
                   Step {step.number}: {step.title}
                 </h3>
-                <p className="text-slate-600 text-lg leading-relaxed max-w-3xl">{step.description}</p>
+                <p className="text-base xs:text-lg text-slate-600 leading-relaxed max-w-xl xs:max-w-3xl mx-auto md:mx-0">{step.description}</p>
               </div>
             </div>
           )

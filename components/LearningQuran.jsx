@@ -31,19 +31,19 @@ export default function LearningQuran() {
 
   return (
     <>
-      <div className="py-16 xl:px-20 bg-gray-50">
+      <div className="py-10 xs:py-14 xl:py-16 px-2 xs:px-4 xl:px-20 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           {/* Main Title */}
-          <h1 className="text-3xl font-bold text-center text-extra-dark mb-16">
+          <h1 className="text-2xl xs:text-3xl font-bold text-center text-extra-dark mb-10 xs:mb-16">
             Why Learning Quran Online is Better?
           </h1>
 
           {/* Three Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+          <div className="grid grid-cols-1 xs:grid-cols-1 md:grid-cols-3 gap-8 xs:gap-12 md:gap-8">
             {benefits.map((benefit) => (
               <div key={benefit.id} className="text-center">
-                <div className="mb-8 flex justify-center">
-                  <div className="w-64 h-64 relative">
+                <div className="mb-6 xs:mb-8 flex justify-center">
+                  <div className="w-44 h-44 xs:w-64 xs:h-64 relative">
                     <Image
                       src={benefit.image}
                       alt={benefit.alt}
@@ -52,7 +52,7 @@ export default function LearningQuran() {
                     />
                   </div>
                 </div>
-                <h2 className="text-xl font-bold text-extra-dark mb-4">
+                <h2 className="text-lg xs:text-xl font-bold text-extra-dark mb-2 xs:mb-4">
                   {benefit.title}
                 </h2>
                 <p className="text-slate-600 leading-relaxed">
