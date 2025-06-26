@@ -24,11 +24,11 @@ export default function Footer() {
   const { about, support, resources } = footerLinks;
   return (
     <footer className="text-sm text-white bg-extra-dark mb-0 mt-auto">
-      <div className="px-5 pt-10 pb-5">
+      <div className="px-2 xs:px-2 sm:px-5 pt-8 xs:pt-10 pb-5">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 gap-8 mb-8 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-8 mb-8 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-5">
           {/* Contact Information */}
-          <div className="col-span-2 space-y-4 text-xs">
+          <div className="col-span-1 xs:col-span-2 space-y-4 text-xs">
             <div className="flex items-center space-x-3">
               <Mail className="w-4 h-4 text-secondary" />
               <span
