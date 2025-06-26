@@ -1,7 +1,4 @@
-'use client';
-
-import { useState, useRef } from 'react';
-import { Play, Pause, Info, Copy, BookOpen } from 'lucide-react';
+import { Copy, BookOpen } from 'lucide-react';
 import Link from "next/link";
 
 const SurahDetail = ({ surahData }) => {
