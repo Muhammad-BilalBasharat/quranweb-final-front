@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
             <AuthProvider>{children}</AuthProvider>
           </HydrationBoundary>
         </QueryClientProvider>
-        <Toaster />
+        <Toaster position="top-right"/>
       </body>
     </html>
   );
