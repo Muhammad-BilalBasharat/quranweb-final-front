@@ -1,24 +1,27 @@
 "use client"
-import React, { useState, useEffect } from "react";
-import SurahList, { SurahListSkeleton } from "./SurahList";
-import JuzList, { JuzListSkeleton } from "./JuzList";
-import NooraniQaida from "./NooraniQaida";
+
+import { useState, useEffect } from "react"
+import SurahList, { SurahListSkeleton } from "./SurahList"
+import JuzList, { JuzListSkeleton } from "./JuzList"
+import NamazDua from "./NamazDua"
+import NooraniQaida from "./NooraniQaida"
 
 const TABS = [
   { key: "surah", label: "Surah" },
   { key: "juz", label: "Juz/Para" },
+  { key: "namaz", label: "Namaz/Dua" },
   { key: "qaida", label: "Noorani Qaida" },
-];
+]
 
 export default function LearnQuranTabs() {
-  const [activeTab, setActiveTab] = useState("surah");
-  const [loading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState("surah")
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    setLoading(true);
-    const timeout = setTimeout(() => setLoading(false), 700);
-    return () => clearTimeout(timeout);
-  }, [activeTab]);
+    setLoading(true)
+    const timeout = setTimeout(() => setLoading(false), 700)
+    return () => clearTimeout(timeout)
+  }, [activeTab])
 
   return (
     <div className="min-h-screen bg-white">
@@ -49,9 +52,10 @@ export default function LearnQuranTabs() {
         <div>
           {activeTab === "surah" && (loading ? <SurahListSkeleton /> : <SurahList />)}
           {activeTab === "juz" && (loading ? <JuzListSkeleton /> : <JuzList />)}
-          {activeTab === "qaida" && ( <NooraniQaida />)}
+          {activeTab === "namaz" && <NamazDua />}
+          {activeTab === "qaida" && <NooraniQaida />}
         </div>
       </div>
     </div>
-  );
+  )
 }

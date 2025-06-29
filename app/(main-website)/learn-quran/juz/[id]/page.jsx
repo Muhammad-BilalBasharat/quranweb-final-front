@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation"
 import QuranPageViewer from "@/components/QuranPageViewer"
 
-export default function SurahPage() {
+export default function JuzPage() {
   const params = useParams()
   const id = params?.id
 
@@ -18,5 +18,5 @@ export default function SurahPage() {
     )
   }
 
-  return <QuranPageViewer type="surah" id={id} />
+  return <QuranPageViewer type="juz" id={id} />
 }
