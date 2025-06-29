@@ -13,6 +13,5 @@ export const useAuthStore = create((set) => ({
   hydrate: () => {
     const token = Cookies.get("auth_token");
     if (token) set({ token });
-    // Optionally, fetch user info here if needed
   },
 }));

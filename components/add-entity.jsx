@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 import { axiosRequest } from "@/lib/axiosReq";
 
 export default function AddEntityForm({ formTitle, entityType, onSuccess }) {
-    const apiEndpoint = process.env.NEXT_PUBLIC_API_URL + `/${entityType}/create-${entityType}`;
+    const apiEndpoint = process.env.NEXT_PUBLIC_API_URL_DASH + `/${entityType}/create-${entityType}`;
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);

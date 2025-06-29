@@ -17,7 +17,7 @@ export default function ClassRequirements() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 xs:py-16 px-2 xs:px-4">
+    <div className="bg-gray-100 py-10 xs:py-16 px-2 xs:px-4">
       <div className="max-w-2xl xs:max-w-4xl md:max-w-5xl lg:max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 xs:mb-12">

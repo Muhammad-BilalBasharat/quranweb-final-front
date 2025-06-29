@@ -51,7 +51,7 @@ export function ListDataTable({ entityType }) {
             try {
                 const res = await axiosRequest({
                     method: "GET",
-                    url: `${process.env.NEXT_PUBLIC_API_URL}/${entityType}/${entityType}s`,
+                    url: `${process.env.NEXT_PUBLIC_API_URL_DASH}/${entityType}/${entityType}s`,
                     headers: {
                         "Cache-Control": "no-cache",
                         "Pragma": "no-cache",
@@ -82,7 +82,7 @@ export function ListDataTable({ entityType }) {
             const row = data.find(d => d._id === deletingId)
             const res = await axiosRequest({
                 method: "DELETE",
-                url: `${process.env.NEXT_PUBLIC_API_URL}/${entityType}/delete-${entityType}/${deletingId}`,
+                url: `${process.env.NEXT_PUBLIC_API_URL_DASH}/${entityType}/delete-${entityType}/${deletingId}`,
             })
             if (res.success) {
                 toast.success(`${row?.name || "Entity"} deleted`)

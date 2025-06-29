@@ -37,7 +37,7 @@ export default function LearnQuranTabs() {
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={`px-5 py-2 font-medium transition-all duration-300 border-b-2 ${
+              className={`px-5 py-2 xs:text-sm md:text-base font-medium transition-all duration-300 border-b-2 ${
                 activeTab === tab.key
                   ? "border-dark bg-dark/15 text-extra-dark"
                   : "text-gray-500 border-transparent hover:text-extra-dark hover:bg-dark/5"

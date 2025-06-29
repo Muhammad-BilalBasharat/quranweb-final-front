@@ -43,7 +43,7 @@ export function NavUser() {
     async function fetchUser() {
       const res = await axiosRequest({
         method: "GET",
-        url: process.env.NEXT_PUBLIC_API_URL + "/auth/me",
+        url: process.env.NEXT_PUBLIC_API_URL_DASH + "/auth/me",
       });
       if (res.success) {
         setUser(res.data.data);

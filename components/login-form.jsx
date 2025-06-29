@@ -32,7 +32,7 @@ export function LoginForm({
 
   const router = useRouter();
 
-  let apiEndpoint = process.env.NEXT_PUBLIC_API_URL + "/auth/login";
+  let apiEndpoint = process.env.NEXT_PUBLIC_API_URL_DASH + "/auth/login";
 
   const onSubmit = async (data) => {
     const response = await axiosRequest({

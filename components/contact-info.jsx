@@ -24,7 +24,7 @@ export default function ContactInfo() {
     });
     const { register, handleSubmit, reset, setValue, watch, formState: { isSubmitting, errors } } = useForm()
     const [contactId, setContactId] = useState(null)
-    const apiEndpoint = process.env.NEXT_PUBLIC_API_URL + `/contact/web-contact`;
+    const apiEndpoint = process.env.NEXT_PUBLIC_API_URL_DASH + `/contact/web-contact`;
 
     // Fetch
     useEffect(() => {

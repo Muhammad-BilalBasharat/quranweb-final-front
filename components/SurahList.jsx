@@ -47,7 +47,7 @@ export default function SurahList() {
       console.log("Fetching surahs from:", `${API_BASE_URL}/api/quran/surahs`)
 
       const response = await axios.get(`${API_BASE_URL}/api/quran/surahs`)
-      console.log("Surahs response:", response.data)
+      // console.log("Surahs response:", response.data)
 
       if (response.data && response.data.surahs) {
         setSurahs(response.data.surahs)
@@ -55,7 +55,7 @@ export default function SurahList() {
         throw new Error("Invalid response format")
       }
     } catch (error) {
-      console.error("Error fetching surahs:", error)
+      // console.error("Error fetching surahs:", error)
       setError(error.response?.data?.message || error.message || "Failed to load surahs")
     } finally {
       setLoading(false)
@@ -82,7 +82,7 @@ export default function SurahList() {
         <p className="text-gray-600 mb-4 text-center max-w-md">{error}</p>
         <button
           onClick={fetchSurahs}
-          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+          className="px-4 py-2 bg-dark text-white rounded hover:bg-extra-dark transition-colors"
         >
           Try Again
         </button>
@@ -120,9 +120,9 @@ export default function SurahList() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
         {getSortedData().map((item) => (
           <Link href={`/learn-quran/surah/${item.surahNumber}`} key={item.surahNumber} className="no-underline">
-            <div className="border border-gray-200 rounded p-2.5 transition-all duration-300 hover:-translate-y-1 hover:border-green-500 cursor-pointer group">
+            <div className="border border-gray-200 rounded p-2.5 transition-all duration-300 hover:-translate-y-1 hover:border-dark cursor-pointer group">
               <div className="flex items-center mb-3">
-                <div className="relative w-8 h-8 rotate-45 bg-green-500 text-white rounded flex items-center justify-center font-bold mr-4 group-hover:bg-green-600 transition-colors duration-300">
+                <div className="relative w-8 h-8 rotate-45 bg-dark text-white rounded flex items-center justify-center font-bold mr-4 group-hover:bg-extra-dark transition-colors duration-300">
                   <div className="absolute -rotate-45">{item.surahNumber}</div>
                 </div>
                 <div className="flex-1">

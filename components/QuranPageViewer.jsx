@@ -160,7 +160,7 @@ export default function QuranPageViewer({ type, id }) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-dark mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>
         </div>
       </div>
@@ -175,7 +175,7 @@ export default function QuranPageViewer({ type, id }) {
           <h3 className="text-lg font-semibold text-gray-900 mb-2">Failed to Load</h3>
           <p className="text-red-600 mb-4">{error}</p>
           <div className="space-x-4">
-            <button onClick={fetchData} className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+            <button onClick={fetchData} className="px-4 py-2 bg-dark text-white rounded hover:bg-extra-dark">
               Try Again
             </button>
             <Link
@@ -195,7 +195,7 @@ export default function QuranPageViewer({ type, id }) {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <p className="text-gray-600 mb-4">No data found</p>
-          <Link href="/learn-quran" className="text-green-500 hover:text-green-600">
+          <Link href="/learn-quran" className="text-dark hover:text-extra-dark">
             Back to Learn Quran
           </Link>
         </div>
@@ -217,11 +217,11 @@ export default function QuranPageViewer({ type, id }) {
               <span className="text-sm">Back to {type === "surah" ? "Surahs" : "Juz"}</span>
             </Link>
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-green-500 text-white rounded text-xs flex items-center justify-center font-bold">
+              <div className="w-6 h-6 bg-dark text-white rounded text-xs flex items-center justify-center font-bold">
                 {data.surahNumber || data.juzNumber}
               </div>
               <h1 className="text-lg font-semibold text-gray-800">{data.name || data.surahName}</h1>
-              <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-medium">
+              <span className="bg-dark/15 text-extra-dark px-2 py-1 rounded text-xs font-medium">
                 {type === "surah" ? `Surah ${data.surahNumber}` : `Juz ${data.juzNumber}`}
               </span>
             </div>
@@ -394,8 +394,8 @@ export default function QuranPageViewer({ type, id }) {
                   }}
                   className={`flex-shrink-0 px-3 py-2 text-xs rounded border transition-all ${
                     index === currentPageIndex
-                      ? "bg-green-500 text-white border-green-500 shadow-md"
-                      : "bg-white text-gray-600 border-gray-300 hover:border-green-500 hover:shadow-sm"
+                      ? "bg-dark text-white border-dark shadow-md"
+                      : "bg-white text-gray-600 border-gray-300 hover:border-dark hover:shadow-sm"
                   }`}
                 >
                   <div className="font-medium">Page {index + 1}</div>
@@ -406,7 +406,7 @@ export default function QuranPageViewer({ type, id }) {
             {/* Progress bar */}
             <div className="mt-3 bg-gray-200 rounded-full h-2">
               <div
-                className="bg-green-500 h-2 rounded-full transition-all duration-300"
+                className="bg-dark h-2 rounded-full transition-all duration-300"
                 style={{ width: `${((currentPageIndex + 1) / pages.length) * 100}%` }}
               ></div>
             </div>

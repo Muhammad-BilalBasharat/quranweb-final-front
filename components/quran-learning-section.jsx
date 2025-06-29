@@ -39,7 +39,7 @@ export default function QuranLearningSection() {
             </p>
 
             <Link
-              href={"#"}
+              href={"/learn-quran"}
               size="lg"
               className="bg-extra-dark text-white px-6 xs:px-8 py-2 xs:py-3 text-base xs:text-lg rounded-lg"
             >
