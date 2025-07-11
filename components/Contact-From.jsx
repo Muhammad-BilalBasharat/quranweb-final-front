@@ -1,31 +1,35 @@
 "use client";
 import { Mail, MapPin, Phone, User, MessageCircle, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { axiosRequest } from "@/lib/axiosReq";
 
 export default function ContactForm() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = async (data) => {
-        const endpoint = `${process.env.NEXT_PUBLIC_API_URL}/contact/send-email`;
-        const toastId = toast.loading("Sending message...");
+        const endpoint = `${process.env.NEXT_PUBLIC_API_URL_DASH}/contact-email/send-email`
+        const toastId = toast.loading("Sending message...")
+
         try {
             const res = await axiosRequest({
                 method: "POST",
                 url: endpoint,
                 data,
                 headers: { "Content-Type": "application/json" },
-            });
+            })
+
             if (res.success) {
-                toast.success("Message sent successfully!", { id: toastId });
-                reset();
+                toast.success("Message sent successfully!", { id: toastId })
+                reset()
             } else {
-                toast.error(res.details || "Failed to send message", { id: toastId });
+                toast.error(res.details || res.error || "Failed to send message", { id: toastId })
             }
         } catch (err) {
-            toast.error("Something went wrong!", { id: toastId });
+            console.error("Contact form error:", err)
+            const errorMessage = err.response?.data?.details || err.response?.data?.error || "Something went wrong!"
+            toast.error(errorMessage, { id: toastId })
         }
-    };
+    }
     return (
         <div>
             {/* Contact Information Section */}
@@ -52,7 +56,7 @@ export default function ContactForm() {
                     </div>
                 </div>
 
-                {/* Phone Number */} 
+                {/* Phone Number */}
                 <div className="flex items-start gap-4 border border-gray-300 p-4 xs:p-4 sm:p-5 rounded hover:shadow-md hover:-translate-y-1.5 duration-300 transform">
                     <div>
                         <Phone className="w-6 h-6 text-primary" />
