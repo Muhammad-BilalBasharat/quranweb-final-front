@@ -3,14 +3,16 @@
 import { useState, useEffect } from "react"
 import SurahList, { SurahListSkeleton } from "./SurahList"
 import JuzList, { JuzListSkeleton } from "./JuzList"
-import NamazDua from "./NamazDua"
+import NamazBook from "./NamazBook"
+import ArabicKalma from "./ArabicKalma"
 import NooraniQaida from "./NooraniQaida"
 
 const TABS = [
   { key: "surah", label: "Surah" },
   { key: "juz", label: "Juz/Para" },
-  { key: "namaz", label: "Namaz/Dua" },
   { key: "qaida", label: "Noorani Qaida" },
+  { key: "namaz", label: "Namaz" },
+  { key: "kalma", label: "Islamic Kalmas" },
 ]
 
 export default function LearnQuranTabs() {
@@ -52,8 +54,9 @@ export default function LearnQuranTabs() {
         <div>
           {activeTab === "surah" && (loading ? <SurahListSkeleton /> : <SurahList />)}
           {activeTab === "juz" && (loading ? <JuzListSkeleton /> : <JuzList />)}
-          {activeTab === "namaz" && <NamazDua />}
           {activeTab === "qaida" && <NooraniQaida />}
+          {activeTab === "namaz" && <NamazBook />}
+          {activeTab === "kalma" && <ArabicKalma />}
         </div>
       </div>
     </div>
