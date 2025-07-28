@@ -8,7 +8,7 @@ import { Download, ArrowBigLeftDash, ChevronLeft, ChevronRight } from "lucide-re
 const TOTAL_PAGES = 6
 
 export default function KalmaClient() {
-    const searchParams = useSearchParams()
+    const searchParams = useSearchParams();
     const router = useRouter()
     const imgParam = searchParams.get("img")
     let imgNum = 1
