@@ -1,7 +1,7 @@
 import { Clock, UsersRound, ShieldCheck, BookOpen, BadgeCheck, UserRound } from "lucide-react";
 
 
-const About = () => {
+const Owner = () => {
   const aboutData = {
     header: {
       title: "About Us",
@@ -64,28 +64,28 @@ const About = () => {
   };
 
   return (
-    <section className="px-4 pb-10 sm:px-4 md:px-6 lg:px-8">
+    <section className="px-4 py-10 sm:px-4 md:px-6 lg:px-8">
       <div className="w-full sm:w-11/12 md:w-5/6 mx-auto">
         {/* Header */}
         <div className="mb-12 text-center">
-          <h2 className="mt-12 mb-10 text-2xl sm:text-3xl font-semibold text-extra-dark text-center">
+          <h2 className="my-10 text-2xl sm:text-3xl font-semibold text-extra-dark text-center">
             {aboutData.header.title}
           </h2>
         </div>
 
         {/* Main Content */}
-        <div className="p-5 bg-white shadow-2xl rounded-xl md:p-12">
+        <div className="p-4 sm:p-8 bg-white shadow-2xl rounded-2xl md:p-12">
           {/* Introduction */}
           <div className="mb-10">
             <div className="flex flex-col sm:flex-row items-center mb-6">
-              <div className="flex items-center justify-center w-16 h-16 mb-4 sm:mb-0 sm:mr-4 rounded-full bg-secondary">
+              <div className="flex items-center justify-center w-16 h-16 mb-4 sm:mb-0 sm:mr-4 rounded-full bg-primary">
                 {aboutData.leader.icon}
               </div>
               <div className="text-center sm:text-left">
                 <h3 className="text-xl sm:text-2xl font-semibold text-extra-dark">
                   {aboutData.leader.name}
                 </h3>
-                <p className="font-medium text-dark">
+                <p className="font-medium text-gray-900">
                   {aboutData.leader.qualification}
                 </p>
               </div>
@@ -112,7 +112,7 @@ const About = () => {
             {aboutData.features.map((feature) => (
               <div className="group" key={feature.id}>
                 <div
-                  className="p-4 sm:p-6 text-center transition-all duration-300 bg-secondary group-hover:bg-primary rounded-lg"
+                  className="p-4 sm:p-6 text-center transition-all duration-300 bg-primary group-hover:bg-dark rounded-xl"
                 >
                   <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 transition-all duration-300 delay-100 rounded-full bg-dark group-hover:bg-extra-dark">
                     {feature.icon}
@@ -131,4 +131,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Owner; 

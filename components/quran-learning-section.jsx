@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function QuranLearningSection() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary to-secondary px-2 xs:px-4 py-10 xs:py-16">
+    <div className="min-h-screen bg-secondary px-2 xs:px-4 py-10 xs:py-16">
       <div className="max-w-7xl mx-auto">
         {/* Main Heading */}
         <div className="text-center mb-10 xs:mb-16">
@@ -19,9 +19,9 @@ export default function QuranLearningSection() {
           <div className="text-center">
             {/* Book Icon */}
             <Image
-              src="/Read-Quran-Online-with-Translation.png"
+              src="/Quran-Video-Lesson-Online.png"
               alt="Read Quran Online"
-              className="w-40 h-40 xs:w-64 xs:h-64 mx-auto mb-6 xs:mb-8 object-contain"
+              className="w-40 xs:w-64 xs:h-64 mx-auto object-contain"
               width={128}
               height={128}
             />
@@ -30,7 +30,7 @@ export default function QuranLearningSection() {
               Read Quran Online with Translation
             </h2>
 
-            <p className="text-slate-700 leading-relaxed mb-6 xs:mb-8 max-w-md mx-auto text-base xs:text-base">
+            <p className="text-slate-700 leading-relaxed mb-5 max-w-md mx-auto text-base xs:text-base">
               As being a muslim we all need to read quran everyday, but there are
               times when you want to read quran but don't have the holy quran near
               you. Don't worry Smart Quran Learning providers you with high resolution
@@ -41,7 +41,7 @@ export default function QuranLearningSection() {
             <Link
               href={"/learn-quran"}
               size="lg"
-              className="bg-extra-dark text-white px-6 xs:px-8 py-2 xs:py-3 text-base xs:text-lg rounded-lg"
+              className="bg-dark hover:bg-extra-dark transition text-white px-6 xs:px-8 py-2 xs:py-3 text-base xs:text-lg rounded-lg"
             >
               Read Quran Online
             </Link>
@@ -51,9 +51,9 @@ export default function QuranLearningSection() {
           <div className="text-center">
             {/* Video Icon */}
             <Image
-              src="/Quran-Video-Lesson-Online.png"
+              src="/video-lesson.png"
               alt="Quran Video Lessons"
-              className="w-40 h-40 xs:w-64 xs:h-64 mx-auto mb-6 xs:mb-8 object-contain"
+              className="xs:w-64 xs:h-64 mx-auto object-contain"
               width={128}
               height={128}
             />
@@ -61,7 +61,7 @@ export default function QuranLearningSection() {
               Easy Quran Video Lessons for Beginners
             </h2>
 
-            <p className="text-slate-700 leading-relaxed mb-6 xs:mb-8 max-w-md mx-auto text-base xs:text-base">
+            <p className="text-slate-700 leading-relaxed mb-5 max-w-md mx-auto text-base xs:text-base">
               To learn any language you need to learn its Alphabets and Words
               Pronunciation, So Learn to Read Quran with Pronunciation with
               Detailed Video Lessons By Qualified Quran Teachers to Learn Quran
@@ -72,7 +72,7 @@ export default function QuranLearningSection() {
             <Link
               href={"#"}
               size="lg"
-              className="bg-extra-dark text-white px-6 xs:px-8 py-2 xs:py-3 text-base xs:text-lg rounded-lg"
+              className="bg-dark hover:bg-extra-dark transition text-white px-6 xs:px-8 py-2 xs:py-3 text-base xs:text-lg rounded-lg"
             >
               Quran Video Lessons
             </Link>

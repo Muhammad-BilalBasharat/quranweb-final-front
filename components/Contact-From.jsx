@@ -30,42 +30,31 @@ export default function ContactForm() {
             toast.error(errorMessage, { id: toastId })
         }
     }
+
+    const contactInfo = [
+        { contactInfoIcon: <Mail className="w-6 h-6 text-primary" />, keyName: "Mail address", valueInfo: "muhammadbasharat@gmail.com" },
+        { contactInfoIcon: <MapPin className="w-6 h-6 text-primary" />, keyName: "Office address", valueInfo: "Narowal,Punjab,Pakistan" },
+        { contactInfoIcon: <Phone className="w-6 h-6 text-primary" />, keyName: "Phone Number", valueInfo: "+1 (732) 347-5534" }
+    ]
+
     return (
-        <div>
+        <>
+            <h2 className="mb-10 mt-12 xs:text-2xl sm:text-3xl font-semibold text-extra-dark text-center">Contact Us</h2>
             {/* Contact Information Section */}
             <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-10">
-                {/* Mail address */}
-                <div className="flex items-start gap-4 border border-gray-300 p-4 xs:p-4 sm:p-5 rounded hover:shadow-md hover:-translate-y-1.5 duration-300 transform">
-                    <div>
-                        <Mail className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                        <h3 className="mb-1 text-lg font-semibold text-extra-dark">Mail address</h3>
-                        <p className="mb-1 text-gray-500">muhammadbasharat@gmail.com</p>
-                    </div>
-                </div>
-
-                {/* Office address */}
-                <div className="flex items-start gap-4 border border-gray-300 p-4 xs:p-4 sm:p-5 rounded hover:shadow-md hover:-translate-y-1.5 duration-300 transform">
-                    <div>
-                        <MapPin className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                        <h3 className="mb-1 text-lg font-semibold text-extra-dark">Office address</h3>
-                        <p className="mb-1 text-gray-500">Main Zafarwal Road Shakargarh City</p>
-                    </div>
-                </div>
-
-                {/* Phone Number */}
-                <div className="flex items-start gap-4 border border-gray-300 p-4 xs:p-4 sm:p-5 rounded hover:shadow-md hover:-translate-y-1.5 duration-300 transform">
-                    <div>
-                        <Phone className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                        <h3 className="mb-1 text-lg font-semibold text-extra-dark">Phone Number</h3>
-                        <p className="mb-1 text-gray-500">+923071080008</p>
-                    </div>
-                </div>
+                {
+                    contactInfo.map(({ contactInfoIcon, keyName, valueInfo }, i) => (
+                        <div key={i} className="flex items-start gap-4 border border-gray-300 p-4 xs:p-4 rounded-lg sm:p-5 hover:shadow-md hover:-translate-y-1.5 duration-300 transform">
+                            <div>
+                                {contactInfoIcon}
+                            </div>
+                            <div>
+                                <h3 className="mb-1 text-lg font-semibold text-extra-dark">{keyName}</h3>
+                                <p className="mb-1 text-gray-500">{valueInfo}</p>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
 
             {/* Contact Form Section */}
@@ -148,6 +137,6 @@ export default function ContactForm() {
                     </form>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

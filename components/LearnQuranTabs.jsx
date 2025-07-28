@@ -30,7 +30,7 @@ export default function LearnQuranTabs() {
       <div className="max-w-7xl mx-auto p-5">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-semibold text-extra-dark mb-5">Learn Quran</h1>
+          <h2 className="mb-10 mt-12 xs:text-2xl sm:text-3xl font-semibold text-extra-dark text-center">Learn Quran</h2>
         </div>
 
         {/* Tabs */}
@@ -39,11 +39,10 @@ export default function LearnQuranTabs() {
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={`px-5 py-2 xs:text-sm md:text-base font-medium transition-all duration-300 border-b-2 ${
-                activeTab === tab.key
+              className={`px-5 py-2 xs:text-xs xs:font-light sm:text-base sm:font-medium transition-all duration-300 border-b-2 ${activeTab === tab.key
                   ? "border-dark bg-dark/15 text-extra-dark"
                   : "text-gray-500 border-transparent hover:text-extra-dark hover:bg-dark/5"
-              }`}
+                }`}
             >
               {tab.label}
             </button>

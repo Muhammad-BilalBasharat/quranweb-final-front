@@ -23,16 +23,16 @@ export default function QuranCourses() {
         </div>
 
         {/* Courses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 sm:gap-6 xs:gap-3">
           {courses.map((course) => (
             <div
               key={course.id}
-              className="bg-slate-800 rounded-lg p-8 text-center hover:bg-slate-700 transition-colors duration-300 cursor-pointer"
+              className="bg-extra-dark rounded-lg xs:p-4 sm:p-8 text-center hover:bg-dark transition-colors duration-300 cursor-pointer"
             >
               <div className="mb-4 flex justify-center">
-                <BookOpen className="w-12 h-12 text-yellow-400" />
+                <BookOpen className="w-12 h-12 text-muted" />
               </div>
-              <h3 className="text-white text-xl font-semibold">{course.title}</h3>
+              <h3 className="text-white xs:text-base sm:text-xl font-semibold">{course.title}</h3>
             </div>
           ))}
         </div>

@@ -52,10 +52,10 @@ import {
   
   export default function Fee () {
     return (
-      <div className="w-full max-w-[98vw] xs:w-[95%] sm:w-[90%] mx-auto space-y-8 px-2 xs:px-2 sm:px-0">
+      <div className="w-full max-w-[98vw] xs:w-[95%] sm:w-[90%] mx-auto space-y-5 px-2 xs:px-2 sm:px-0">
         {/* Main Heading */}
         <div className="text-center">
-          <h1 className="my-6 xs:my-8 sm:my-10 text-xl xs:text-2xl sm:text-3xl font-semibold text-extra-dark text-center">Tuition Fee</h1>
+          <h1 className="mt-12 mb-5 text-xl xs:text-2xl sm:text-3xl font-semibold text-extra-dark text-center">Tuition Fee</h1>
           <p>We will provide 3 free trials lessons.</p>
         </div>
   

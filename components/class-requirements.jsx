@@ -23,9 +23,9 @@ export default function ClassRequirements() {
         <div className="text-center mb-8 xs:mb-12">
           <h1 className="text-2xl xs:text-3xl font-bold text-extra-dark mb-2">Simple Class Requirements</h1>
           <div className="inline-block ml-2">
-            <div className="w-10 h-10 xs:w-12 xs:h-12 bg-gradient-to-br from-blue-400 to-teal-400 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 xs:w-12 xs:h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
               <div className="w-5 h-5 xs:w-6 xs:h-6 bg-white rounded-sm flex items-center justify-center">
-                <div className="w-2 h-2 xs:w-3 xs:h-2 bg-blue-500 rounded-sm"></div>
+                <div className="w-2 h-2 xs:w-3 xs:h-2 bg-primary rounded-sm"></div>
               </div>
             </div>
           </div>
@@ -38,10 +38,10 @@ export default function ClassRequirements() {
             return (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 {/* Icon Section */}
-                <div className="h-32 xs:h-48 md:h-56 lg:h-48 bg-gradient-to-br from-cyan-400 to-teal-300 flex items-center justify-center">
+                <div className="h-32 xs:h-48 md:h-56 lg:h-48 bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                   <IconComponent className="w-12 h-12 xs:w-16 xs:h-16 md:w-20 md:h-20 lg:w-16 lg:h-16 text-white stroke-[1.5]" />
                 </div>
 

@@ -36,9 +36,9 @@ export default function EnrollmentSteps() {
             <div key={step.number} className="flex flex-col md:flex-row items-center gap-6 xs:gap-8">
               {/* Icon Circle */}
               <div className="flex-shrink-0">
-                <div className="w-32 h-32 xs:w-48 xs:h-48 rounded-full bg-gradient-to-br from-cyan-400 to-emerald-400 flex items-center justify-center shadow-lg">
+                <div className="w-32 h-32 xs:w-48 xs:h-48 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
                   <div className="w-20 h-20 xs:w-32 xs:h-32 bg-white rounded-2xl flex items-center justify-center">
-                    <IconComponent className="w-10 h-10 xs:w-16 xs:h-16 text-cyan-500" strokeWidth={1.5} />
+                    <IconComponent className="w-10 h-10 xs:w-16 xs:h-16 text-dark" strokeWidth={1.5} />
                   </div>
                 </div>
               </div>

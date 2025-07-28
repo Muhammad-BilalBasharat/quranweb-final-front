@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
 
       <p className="mb-4">
-        At [Your Quran Academy Name], we value and respect your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.
+        At [Smart Quaran Learning], we value and respect your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">1. Information We Collect</h2>
@@ -39,7 +39,7 @@ const PrivacyPolicy = () => {
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">6. Children's Privacy</h2>
       <p className="mb-4">
-        Our services are intended for users aged 13 and above. If you are a parent and believe your child has provided us personal information, please contact us.
+        Our services are intended for users aged 4 and above. If you are a parent and believe your child has provided us personal information, please contact us.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">7. Changes to This Policy</h2>

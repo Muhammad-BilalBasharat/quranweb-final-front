@@ -16,15 +16,24 @@ const footerLinks = {
   ],
   resources: [
     { href: "/how-to-pay", text: "How To Pay" },
-    { href: "/faq", text: "FAQ's" },
-    { href: "/demo-lecture", text: "Demo Lecture" },
+    { href: "/faq", text: "FAQ's" }
   ]
 };
+
+const footerSocialLinks = [
+  { socialIcon: <Facebook className="w-4 h-4"/>, href: "#", hoverColor: "hover:bg-primary" },
+  { socialIcon: <Instagram className="w-4 h-4"/>, href: "#", hoverColor: "hover:bg-rose-400" },
+  { socialIcon: <Twitter className="w-4 h-4"/>, href: "#", hoverColor: "hover:bg-primary" },
+  { socialIcon: <Youtube className="w-4 h-4"/>, href: "#", hoverColor: "hover:bg-red-600" },
+]
+
+
+
 export default function Footer() {
   const { about, support, resources } = footerLinks;
   return (
     <footer className="text-sm text-white bg-extra-dark mb-0 mt-auto">
-      <div className="px-2 xs:px-2 sm:px-5 pt-8 xs:pt-10 pb-5">
+      <div className="px-2 xs:px-2 sm:px-5 pt-10 pb-5">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 gap-8 mb-8 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-5">
           {/* Contact Information */}
@@ -43,43 +52,29 @@ export default function Footer() {
               <span
                 className="transition-colors duration-200 hover:text-secondary"
               >
-                +923071080008
+                +1 (732) 347-5534
               </span>
             </div>
 
             <div className="flex items-start space-x-3">
               <MapPin className="flex-shrink-0 w-4 h-4 text-secondary" />
               <span className="leading-relaxed transition-colors duration-200 hover:text-secondary">
-                Main Shakargarh Road Zafarwal District Narowal Punjab Pakistan
+                Narowal,Punjab,Pakistan
               </span>
             </div>
 
             {/* Social Media Icons */}
             <div className="flex pt-4 space-x-4">
-              <Link
-                href="#"
-                className="flex justify-center items-center w-8 h-8 bg-white rounded-full transition-colors duration-200 text-slate-800 hover:bg-secondary hover:text-white"
-              >
-                <Facebook className="w-4 h-4" />
-              </Link>
-              <Link
-                href="#"
-                className="flex justify-center items-center w-8 h-8 bg-white rounded-full transition-colors duration-200 text-slate-800 hover:bg-secondary hover:text-white"
-              >
-                <Instagram className="w-4 h-4" />
-              </Link>
-              <Link
-                href="#"
-                className="flex justify-center items-center w-8 h-8 bg-white rounded-full transition-colors duration-200 text-slate-800 hover:bg-secondary hover:text-white"
-              >
-                <Twitter className="w-4 h-4" />
-              </Link>
-              <Link
-                href="#"
-                className="flex justify-center items-center w-8 h-8 bg-white rounded-full transition-colors duration-200 text-slate-800 hover:bg-secondary hover:text-white"
-              >
-                <Youtube className="w-4 h-4" />
-              </Link>
+              {
+                footerSocialLinks.map(({ socialIcon, href, hoverColor }, i) => (
+                  <Link key={i}
+                    href={href}
+                    className={`flex justify-center items-center w-8 h-8 bg-white rounded-full transition-colors duration-200 text-slate-800 hover:text-white ${hoverColor}`}
+                  >
+                    {socialIcon}
+                  </Link>
+                ))
+              }
             </div>
           </div>
 
