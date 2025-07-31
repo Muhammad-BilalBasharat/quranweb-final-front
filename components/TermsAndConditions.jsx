@@ -51,7 +51,7 @@ const TermsAndConditions = () => {
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">9. Contact Us</h2>
       <p className="mb-4">
-        If you have questions about these terms, contact us at learnquranonline.io@gmail.com.
+        If you have questions about these terms, contact us at learnquranonlineofficial.io@gmail.com.
       </p>
 
       <p className="mt-6 text-sm text-gray-600">Last updated: June 19, 2025</p>

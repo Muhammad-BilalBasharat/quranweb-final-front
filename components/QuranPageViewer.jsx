@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import {
   ArrowLeft,
@@ -16,6 +15,7 @@ import {
 import Link from "next/link"
 import Image from "next/image"
 import axios from "axios"
+import toast from "react-hot-toast"
 
 export default function QuranPageViewer({ type, id }) {
   const [data, setData] = useState(null)
@@ -40,7 +40,6 @@ export default function QuranPageViewer({ type, id }) {
     try {
       setLoading(true)
       setError(null)
-
       let response, pagesResponse
 
       if (type === "surah") {
@@ -54,7 +53,7 @@ export default function QuranPageViewer({ type, id }) {
       setData(response.data)
       setPages(pagesResponse.data.pages || [])
     } catch (error) {
-      console.error("Error fetching data:", error)
+      // console.error("Error fetching data:", error)
       setError(error.response?.data?.message || error.message || "Failed to load data")
     } finally {
       setLoading(false)
@@ -95,9 +94,11 @@ export default function QuranPageViewer({ type, id }) {
       link.click()
       document.body.removeChild(link)
       window.URL.revokeObjectURL(url)
+
+      toast.success("Image downloaded successfully!")
     } catch (error) {
-      console.error("Error downloading image:", error)
-      alert("Failed to download image")
+      // console.error("Error downloading image:", error)
+      toast.error("Failed to download image")
     } finally {
       setDownloading(false)
     }
@@ -109,7 +110,6 @@ export default function QuranPageViewer({ type, id }) {
     try {
       setSharing(true)
       const imageUrl = `${API_BASE_URL}${currentPage.imageUrl}`
-
       const shareData = {
         title: `Quran Page ${currentPage.pageNumber}`,
         text: `${type === "surah" ? `Surah ${data.name}` : `Juz ${data.name}`} - Page ${currentPage.pageNumber}`,
@@ -119,20 +119,21 @@ export default function QuranPageViewer({ type, id }) {
       // Check if Web Share API is supported
       if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
         await navigator.share(shareData)
+        toast.success("Shared successfully!")
       } else {
         // Fallback: Copy URL to clipboard
         await navigator.clipboard.writeText(window.location.href)
-        alert("Page URL copied to clipboard!")
+        toast.success("Page URL copied to clipboard!")
       }
     } catch (error) {
-      console.error("Error sharing:", error)
+      // console.error("Error sharing:", error)
       // Fallback: Copy URL to clipboard
       try {
         await navigator.clipboard.writeText(window.location.href)
-        alert("Page URL copied to clipboard!")
+        toast.success("Page URL copied to clipboard!")
       } catch (clipboardError) {
-        console.error("Clipboard error:", clipboardError)
-        alert("Unable to share or copy URL")
+        // console.error("Clipboard error:", clipboardError)
+        toast.error("Unable to share or copy URL")
       }
     } finally {
       setSharing(false)
@@ -145,10 +146,10 @@ export default function QuranPageViewer({ type, id }) {
     try {
       const imageUrl = `${API_BASE_URL}${currentPage.imageUrl}`
       await navigator.clipboard.writeText(imageUrl)
-      alert("Image URL copied to clipboard!")
+      toast.success("Image URL copied to clipboard!")
     } catch (error) {
-      console.error("Error copying URL:", error)
-      alert("Failed to copy URL")
+      // console.error("Error copying URL:", error)
+      toast.error("Failed to copy URL")
     }
   }
 
@@ -230,7 +231,6 @@ export default function QuranPageViewer({ type, id }) {
               </span>
             </div>
           </div>
-
           {/* Desktop Header Layout */}
           <div className="xs:hidden md:flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -267,14 +267,12 @@ export default function QuranPageViewer({ type, id }) {
                 <ChevronLeft className="xs:w-3 xs:h-3 sm:w-4 sm:h-4" />
                 <span className="xs:hidden sm:inline">Previous</span>
               </button>
-
               <span className="xs:text-xs sm:text-sm text-gray-600 text-center flex-1 mx-2">
                 <div>
                   Page {currentPageIndex + 1} of {pages.length}
                 </div>
                 <div className="xs:text-xs text-gray-500">Quran Page {currentPage?.pageNumber}</div>
               </span>
-
               <button
                 onClick={goToNextPage}
                 disabled={currentPageIndex === pages.length - 1}
@@ -284,7 +282,6 @@ export default function QuranPageViewer({ type, id }) {
                 <ChevronRight className="xs:w-3 xs:h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
-
             {/* Controls Row */}
             <div className="flex items-center justify-between">
               {/* Zoom Controls */}
@@ -309,7 +306,6 @@ export default function QuranPageViewer({ type, id }) {
                   <RotateCcw className="xs:w-3 xs:h-3 sm:w-4 sm:h-4" />
                 </button>
               </div>
-
               {/* Action Buttons */}
               <div className="flex items-center gap-1">
                 <button
@@ -338,7 +334,6 @@ export default function QuranPageViewer({ type, id }) {
               </div>
             </div>
           </div>
-
           {/* Desktop Controls Layout */}
           <div className="xs:hidden lg:flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -456,7 +451,7 @@ export default function QuranPageViewer({ type, id }) {
                       className="xs:w-[320px] xs:h-auto sm:w-[450px] sm:h-auto md:w-[600px] md:h-auto border border-gray-300 rounded shadow-lg"
                       priority
                       onError={(e) => {
-                        console.error("Image failed to load:", imageUrl)
+                        // console.error("Image failed to load:", imageUrl)
                         setImageError(true)
                       }}
                       onLoad={() => {

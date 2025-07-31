@@ -43,7 +43,7 @@ export default function Footer() {
               <span
                 className="transition-colors duration-200 hover:text-secondary"
               >
-                learnquranonline.io@gmail.com
+                learnquranonlineofficial.io@gmail.com
               </span>
             </div>
 

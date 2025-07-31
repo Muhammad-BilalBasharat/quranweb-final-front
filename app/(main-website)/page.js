@@ -6,6 +6,7 @@ import LearningQuran from "@/components/LearningQuran";
 import MissionSection from "@/components/mission-section";
 import QuranCourses from "@/components/quran-courses";
 import QuranLearningSection from "@/components/quran-learning-section";
+import { Toaster } from "react-hot-toast";
 
 export function generateMetadata() {
   return {
@@ -25,6 +26,7 @@ export default function Home() {
       <AcademyFeatures />
       <QuranLearningSection />
       <MissionSection />
+      <Toaster/>
     </>
   );
 }

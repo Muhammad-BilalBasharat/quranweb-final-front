@@ -34,7 +34,7 @@ const PrivacyPolicy = () => {
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">5. Your Rights</h2>
       <p className="mb-4">
-        You have the right to access, update, or delete your personal data. Contact us at learnquranonline.io@gmail.com for any such requests.
+        You have the right to access, update, or delete your personal data. Contact us at learnquranonlineofficial.io@gmail.com for any such requests.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">6. Children's Privacy</h2>

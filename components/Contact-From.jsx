@@ -32,7 +32,7 @@ export default function ContactForm() {
     }
 
     const contactInfo = [
-        { contactInfoIcon: <Mail className="w-6 h-6 text-primary" />, keyName: "Mail address", valueInfo: "learnquranonline.io@gmail.com" },
+        { contactInfoIcon: <Mail className="w-6 h-6 text-primary" />, keyName: "Mail address", valueInfo: "learnquranonlineofficial.io@gmail.com" },
         { contactInfoIcon: <MapPin className="w-6 h-6 text-primary" />, keyName: "Office address", valueInfo: "Narowal,Punjab,Pakistan" },
         { contactInfoIcon: <Phone className="w-6 h-6 text-primary" />, keyName: "Phone Number", valueInfo: "+1 (732) 347-5534" }
     ]

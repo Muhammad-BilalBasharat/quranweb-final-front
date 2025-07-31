@@ -9,7 +9,7 @@ export default function Header() {
 
           <div className="flex items-center space-x-0.5">
             <Mail size={14} />
-            <span>learnquranonline.io@gmail.com</span>
+            <span>learnquranonlineofficial.io@gmail.com</span>
           </div>
 
           <div className="flex items-center space-x-0.5">
