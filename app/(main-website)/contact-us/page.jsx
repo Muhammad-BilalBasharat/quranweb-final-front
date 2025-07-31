@@ -2,8 +2,8 @@ import ContactForm from "@/components/Contact-From";
 
 export function generateMetadata() {
   return {
-    title: "Contact Us | QuranWeb",
-    description: "Get in touch with QuranWeb",
+    title: "Contact Us | Learn Quran Online",
+    description: "Get in touch with Learn Quran Online",
   };
 }
 

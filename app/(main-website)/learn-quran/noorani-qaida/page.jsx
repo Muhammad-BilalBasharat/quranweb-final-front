@@ -1,7 +1,7 @@
 
 export function generateMetadata() {
     return {
-        title: "Learn Quran | Noorani Qaida | QuranWeb",
+        title: "Learn Quran | Noorani Qaida | Learn Quran Online",
         description: "Noorani Qaida for learning Quran",
     };
 }

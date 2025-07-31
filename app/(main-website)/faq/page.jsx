@@ -1,7 +1,7 @@
 export function generateMetadata() {
   return {
-    title: "Frequently Asked Questions | QuranWeb",
-    description: "Find answers to common questions about QuranWeb.",
+    title: "Frequently Asked Questions | Learn Quran Online",
+    description: "Find answers to common questions about Learn Quran Online.",
   };
 }
 

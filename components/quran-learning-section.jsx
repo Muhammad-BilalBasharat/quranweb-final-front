@@ -33,7 +33,7 @@ export default function QuranLearningSection() {
             <p className="text-slate-700 leading-relaxed mb-5 max-w-md mx-auto text-base xs:text-base">
               As being a muslim we all need to read quran everyday, but there are
               times when you want to read quran but don't have the holy quran near
-              you. Don't worry Smart Quran Learning providers you with high resolution
+              you. Don't worry Learn Quran Online providers you with high resolution
               Quran images of the Holy Quran with sharp details and color for an
               immersive quran reading experience.
             </p>

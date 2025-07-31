@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
 
       <p className="mb-4">
-        At [Smart Quaran Learning], we value and respect your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.
+        At Learn Quran Online, we value and respect your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">1. Information We Collect</h2>
@@ -34,7 +34,7 @@ const PrivacyPolicy = () => {
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">5. Your Rights</h2>
       <p className="mb-4">
-        You have the right to access, update, or delete your personal data. Contact us at [your-email@example.com] for any such requests.
+        You have the right to access, update, or delete your personal data. Contact us at learnquranonline.io@gmail.com for any such requests.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">6. Children's Privacy</h2>

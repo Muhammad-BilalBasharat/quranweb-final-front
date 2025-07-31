@@ -35,7 +35,8 @@ const faqData = [
     },
     {
         question: "How can i join classes/lectures?",
-        answer: "You can join classes by Microsoft Team Software and Android App from 'https://www.microsoft.com/en-us/microsoft-teams/download-app'. After registration, we will send you the invitation link for classes on your email than you can join your classes.",
+        answer: `You can join classes by Microsoft Team Software and Android App. After registration, we will send you the invitation link for classes on your email than you can join your classes.`,
+        html: <b><br/><a href='https://www.microsoft.com/en-us/microsoft-teams/download-app' target='_blank' className="underline text-extra-dark">Click To Download</a></b>,
     },
 ]
 
@@ -57,6 +58,7 @@ export function FaqAccordion() {
                             <AccordionContent className="flex flex-col gap-4 text-balance">
                                 <p>
                                     {faq.answer}
+                                    {faq.html ? faq.html : ""}
                                 </p>
 
                             </AccordionContent>

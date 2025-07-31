@@ -7,7 +7,7 @@ return (
 
 export function generateMetadata() {
   return {
-    title: "Tuition Fee | QuranWeb",
-    description: "View QuranWeb tuition fee details.",
+    title: "Tuition Fee | Learn Quran Online",
+    description: "View Learn Quran Online tuition fee details.",
   };
 }

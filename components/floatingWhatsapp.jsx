@@ -1,7 +1,7 @@
 'use client';
 import { useState } from "react";
 
-export default function WhatsAppButton({ phoneNumber = "03466111575", message = "Hello! I'm interested in your services." }) {
+export default function WhatsAppButton({ phoneNumber = "+923231780757", message = "Hello! I'm interested in your services." }) {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleWhatsAppClick = () => {

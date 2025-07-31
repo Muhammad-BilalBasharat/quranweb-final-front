@@ -1,7 +1,7 @@
 
 export function generateMetadata() {
     return {
-        title: "Learn Quran | Arabic Kalmas | QuranWeb",
+        title: "Learn Quran | Arabic Kalmas | Learn Quran Online",
         description: "Arabic Kalmas for learning Quran",
     };
 }

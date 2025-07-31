@@ -17,7 +17,7 @@ export default function QuranCourses() {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-extra-dark mb-6">Our Quran Courses</h2>
           <p className="text-slate-800 text-center">
-            SmartQuranLearning has a very comprehensive curriculum that covers all the basic things necessary for
+            Learn Quran Online has a very comprehensive curriculum that covers all the basic things necessary for
             learning Quran efficiently.
           </p>
         </div>

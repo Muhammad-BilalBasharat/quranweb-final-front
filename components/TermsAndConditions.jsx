@@ -6,7 +6,7 @@ const TermsAndConditions = () => {
       <h1 className="text-3xl font-bold mb-6">Terms & Conditions</h1>
 
       <p className="mb-4">
-        Welcome to [Smart Quran Learning]. By accessing or using our website and services, you agree to be bound by the following terms and conditions. Please read them carefully.
+        Welcome to Learn Quran Online. By accessing or using our website and services, you agree to be bound by the following terms and conditions. Please read them carefully.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">1. Use of Website</h2>
@@ -31,7 +31,7 @@ const TermsAndConditions = () => {
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">5. Intellectual Property</h2>
       <p className="mb-4">
-        All content, including videos, PDFs, and live class materials, are the intellectual property of [Smart Quran Learning]. You may not reproduce, distribute, or modify any content without permission.
+        All content, including videos, PDFs, and live class materials, are the intellectual property of Learn Quran Online. You may not reproduce, distribute, or modify any content without permission.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">6. Termination</h2>
@@ -51,7 +51,7 @@ const TermsAndConditions = () => {
 
       <h2 className="text-2xl font-semibold mt-6 mb-2">9. Contact Us</h2>
       <p className="mb-4">
-        If you have questions about these terms, contact us at [your-email@example.com].
+        If you have questions about these terms, contact us at learnquranonline.io@gmail.com.
       </p>
 
       <p className="mt-6 text-sm text-gray-600">Last updated: June 19, 2025</p>

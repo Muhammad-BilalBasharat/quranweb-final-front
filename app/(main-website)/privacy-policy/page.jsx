@@ -2,8 +2,8 @@ import PrivacyPolicy from "@/components/PrivacyPolicy";
 
 export function generateMetadata() {
   return {
-    title: "Privacy Policy | QuranWeb",
-    description: "Read the privacy policy of QuranWeb.",
+    title: "Privacy Policy | Learn Quran Online",
+    description: "Read the privacy policy of Learn Quran Online.",
   };
 }
 

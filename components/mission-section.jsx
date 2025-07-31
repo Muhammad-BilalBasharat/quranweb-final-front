@@ -11,7 +11,7 @@ export default function MissionSection() {
           </p>
 
           <p className="text-sm xs:text-sm md:text-lg max-w-3xl xs:max-w-5xl mx-auto">
-            Smart Quran Learning aims to teach Quran to the Muslims around the world in order to make them closer to their
+            Learn Quran Online aims to teach Quran to the Muslims around the world in order to make them closer to their
             religion. We also aspire to make the learning of Quran easier for the people in a way that we teach online
             and everyone can feasibly learn the recitation of Quran from our platform even by sitting in their homes.
             Thus, teaching Quran and providing people ease in learning our holy book are our major goals.

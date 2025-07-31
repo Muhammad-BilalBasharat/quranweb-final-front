@@ -1,7 +1,7 @@
 export function generateMetadata() {
   return {
-    title: "About | QuranWeb",
-    description: "Learn more about QuranWeb",
+    title: "About | Learn Quran Online",
+    description: "Learn more about Learn Quran Online",
   };
 }
 import About from "@/components/About";

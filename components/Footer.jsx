@@ -43,7 +43,7 @@ export default function Footer() {
               <span
                 className="transition-colors duration-200 hover:text-secondary"
               >
-                support@akdesignerart.com
+                learnquranonline.io@gmail.com
               </span>
             </div>
 
@@ -130,7 +130,7 @@ export default function Footer() {
         {/* Copyright Section */}
         <div className="border-t border-muted"></div>
         <div className="mt-5 text-xs text-center text-gray-200">
-          &copy; {new Date().getFullYear()} Smart Quran Learning. All rights reserved.
+          &copy; {new Date().getFullYear()} Learn Quran Online. All rights reserved.
         </div>
       </div>
     </footer>

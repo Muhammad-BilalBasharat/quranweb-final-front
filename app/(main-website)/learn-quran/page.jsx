@@ -1,6 +1,6 @@
 export function generateMetadata() {
     return {
-        title: "Learn Quran | QuranWeb",
+        title: "Learn Quran | Learn Quran Online",
         description: "Quran surah And Quran Juz/Para List",
     };
 }

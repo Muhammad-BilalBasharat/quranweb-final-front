@@ -1,7 +1,7 @@
 
 export function generateMetadata() {
     return {
-        title: "Learn Quran | Namaz Book | QuranWeb",
+        title: "Learn Quran | Namaz Book | Learn Quran Online",
         description: "Namaz Book for learning Quran",
     };
 }
